@@ -1,0 +1,52 @@
+
+Tile == every tile has a goal which is a tile
+rbfs == arry of tiles, has the manhatten distance of every tile from its goal
+rbfs has the two functions h and f
+
+Evaluates nodes by combining g(n), the cost to reach the
+node, and h(n), the cost to get from the node to the goal:
+
+f(n) = h(n) +g (n)
+
+■ Since g(n) gives the path cost from the start node to node n,
+and h(n) is the estimated cost of the cheapest path from n to
+the goal, we have:
+
+f (n) = estimated cost of the cheapest solution through n
+
+map manipulation should be controlled by rbfs\
+
+
+we have a puzzle that has the map;
+we have an rbfs that moves shit.
+rbfs will be fed maps? rbfs will solve the problem
+
+there is no need for a puzzle class since the rbfs will solve it, so the problem will be fed by the driver;
+
+
+if zr+1 <3 and zc+1<3 
+
+
+/*
+    // Construct Solution
+     * declare 4 solutions; put every legal next tile one of these solution
+     * instantiating those solutions; if solution is not null put it in an array;
+     * solution has an arraylist that holds the next nodes from its position,
+     * solution has the node zero also + its state (it does not have to be the
+     * initial state). solution has a direction for the zero node to move there. or
+     * calculate it since I have the children. solution also has next which will be
+     * one of the children.
+     * 
+     * Construct solution will evaluate which path to choose either one of the
+     * children which will be in the next or the last child of the other path or
+     * paths that has not been pruned.
+     * 
+     * since each path will alter the ss, we have to have 4 or less solutions, each
+     * has its own copy of the ss. each solution is a branch of the tree.
+     */
+
+
+
+
+
+
