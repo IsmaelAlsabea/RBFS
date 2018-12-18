@@ -12,11 +12,11 @@ class rbfs {
     }
 
     /**
-     * instead of having 1 root for a tree, I am using this approach to get 4
-     * branches of the tree. because the state space will be altered by each
-     * solution, so it is easier to write code that uses 4 branches (since the
-     * maximum number of branches for a tree with this puzzle is 4 (if zero was at
-     * 1,1 position)) each will have its own state space that can be altered without
+     * instead of having 1 root for a tree, I am using 4
+     * branches instead of a monolithic tree. because the state space will be altered by each
+     * branch, so it is easier to write code that uses 4 branches (since the
+     * maximum number of branches for a tree with this puzzle is 4 
+     * each will have its own state space that can be altered without
      * affecting the state space of the other branches
      */
     private List<branch> initializeSolutionsArray() {
@@ -69,14 +69,14 @@ class rbfs {
     }
 
     /**
-     * the code below puts the next move in the mtg it will create a number of
-     * branches and will put the 1 next tile each of these branches so if 0 was at
+     * the code below puts the next move in the mtg (moves to goal). this method will create a number of
+     * branches based on the position of the zero tile, so if 0 was at
      * the right downward corner, there will be 2 branches one has the left node as
-     * a root, and the other one has the upward node as the root node, then it will
+     * a root, and the other one has the upward node as the root node (of the branch), then it will
      * swap and check if the move produces the smallest f that was calculated
      * earlier. if the swap generates the smallest f then we make the move and put
      * the next batch of nodes in the leafs arraylist(expand the branch). Otherwise
-     * we swap back and not expand the branch
+     * we swap back and not expand the branch.
      */
     branch constructSolution() {
         List<branch> x = initializeSolutionsArray();
@@ -144,7 +144,7 @@ class rbfs {
 
     private void putNextTilesInLeafsArrayList(branch x, boolean down, boolean up, boolean right, boolean left) {
         x.leafs.clear();/*
-                         * we clear because we moved and the leafs of the previous iteration should not
+                         * we clear because we already made the move and the leafs of the previous iteration should not
                          * be considered
                          */
         if (x.zero.ti.r + 1 < 3 && down) {
